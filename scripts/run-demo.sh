@@ -3,6 +3,7 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 COMPOSE_FILE="${ROOT_DIR}/docker/compose.yml"
+FOLLOW_LOGS="${RFL_FOLLOW_LOGS:-1}"
 
 report_port_conflict() {
   echo "Port 9090 is already in use. Stop the conflicting process or container before starting RoboROS."
@@ -63,8 +64,43 @@ fi
 echo
 docker compose -f "${COMPOSE_FILE}" ps
 echo
-echo "Demo ready."
-echo "rosbridge: ws://127.0.0.1:9090"
-echo "camera: /robotflow/demo/camera/image_raw/compressed"
-echo "service: /robotflow/demo/add_two_ints"
-echo "next: pnpm --dir \"${ROOT_DIR}\" build && pnpm --dir \"${ROOT_DIR}\" dev:mcp"
+cat <<EOF
+========================================================================
+ROBOROS LIVE DEMO // ROBOT FLOW LABS
+========================================================================
+See Docker
+  pnpm demo:ps
+  pnpm demo:logs
+  pnpm demo:shell
+
+Control + Debug
+  bash scripts/doctor.sh
+  pnpm build
+  pnpm dev:mcp
+  pnpm smoke:docker
+
+Demo Contract
+  rosbridge : ws://127.0.0.1:9090
+  camera    : /robotflow/demo/camera/image_raw/compressed
+  service   : /robotflow/demo/add_two_ints
+  heartbeat : /robotflow/demo/heartbeat
+  echo      : /robotflow/demo/cmd_vel_echo
+
+MCP First Steps
+  1. robot_get_overview
+  2. ros2_list_topics
+  3. ros2_list_services
+  4. robot_camera_snapshot
+  5. ros2_call_service
+
+Stop
+  pnpm demo:down
+========================================================================
+Keep this running while we debug against the live Docker stack.
+EOF
+
+if [[ "${FOLLOW_LOGS}" == "1" ]]; then
+  echo
+  echo "Streaming live Docker logs. Press Ctrl+C to stop log streaming. The container will keep running."
+  exec docker compose -f "${COMPOSE_FILE}" logs -f demo-rosbridge
+fi

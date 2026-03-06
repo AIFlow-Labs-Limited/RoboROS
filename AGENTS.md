@@ -10,8 +10,10 @@ The repo is organized around one neutral runtime and thin host adapters.
 
 1. Run `bash scripts/doctor.sh`
 2. If needed, boot the demo with `bash scripts/run-demo.sh`
-3. Build with `pnpm build`
-4. Start the MCP adapter with `pnpm dev:mcp`
+3. Inspect Docker with `pnpm demo:ps` or `pnpm demo:logs`
+4. Build with `pnpm build`
+5. Start the MCP adapter with `pnpm dev:mcp`
+6. Start every live debug session with `robot_get_overview`
 
 ## Key rules
 
@@ -26,8 +28,9 @@ The repo is organized around one neutral runtime and thin host adapters.
 - `packages/runtime-core`
 - `packages/adapter-mcp`
 - `packages/bridge-lerobot`
+- `skills/roboros-operator`
 - `skills/codex-robotics`
 - `skills/claude-robotics`
+- `skills/cursor-robotics`
 - `ARCHITECTURE.md`
 - `RESEARCH_PLAN.md`
-

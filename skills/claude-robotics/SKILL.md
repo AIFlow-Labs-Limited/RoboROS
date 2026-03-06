@@ -1,23 +1,28 @@
 ---
 name: claude-robotics
-description: Use when Claude Code is operating against RoboROS through MCP, needs guidance for safe robot actions, or is extending the RoboROS platform and LeRobot bridge.
+description: Use when Claude Code is operating against RoboROS through MCP, debugging the live Docker demo, or extending the RoboROS platform and LeRobot bridge.
 ---
 
 # Claude Robotics
 
 Use this skill for RoboROS control, diagnostics, and platform work from Claude Code.
 
+Read `skills/roboros-operator/SKILL.md` first for the shared operating workflow.
+
 ## Preferred path
 
 1. Connect through the RoboROS MCP server.
-2. Read `robot://health` and `robot://capabilities` before issuing motion commands.
-3. Prefer structured tool calls over shell-based rosbridge experiments.
-4. Keep safety outside prompt text. Runtime policy is the source of truth.
+2. Start live debugging from `pnpm demo`, `pnpm demo:ps`, and `pnpm demo:logs`.
+3. Read `robot://overview`, `robot://health`, and `robot://capabilities` before issuing motion commands.
+4. Prefer structured tool calls over shell-based rosbridge experiments.
+5. Keep safety outside prompt text. Runtime policy is the source of truth.
 
 ## Common tasks
 
 - inspect available ROS2 topics
+- inspect available ROS2 services
 - publish velocity or command messages
+- call ROS2 services
 - capture camera frames
 - verify rosbridge connectivity
 - prepare LeRobot-compatible episode manifests

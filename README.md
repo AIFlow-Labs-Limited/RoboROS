@@ -67,6 +67,7 @@ What works today:
 ```bash
 pnpm install
 pnpm demo
+pnpm demo:logs
 pnpm build
 pnpm dev:mcp
 ```
@@ -81,6 +82,9 @@ Useful checks:
 
 ```bash
 bash scripts/doctor.sh
+pnpm demo:ps
+pnpm demo:logs
+pnpm demo:shell
 pnpm smoke:docker
 pnpm demo:down
 ```
@@ -126,17 +130,22 @@ If `9090` is busy, the scripts now tell you what owns the port before they fail.
 ### Claude Code
 
 - connect to the RoboROS MCP server
+- use the universal operator skill in [`skills/roboros-operator/SKILL.md`](./skills/roboros-operator/SKILL.md)
 - use the skill in [`skills/claude-robotics/SKILL.md`](./skills/claude-robotics/SKILL.md)
 - read `robot://health` and `robot://capabilities` before motion commands
 
 ### Cursor
 
 - use the MCP adapter through a standard stdio MCP config
+- use the universal operator skill in [`skills/roboros-operator/SKILL.md`](./skills/roboros-operator/SKILL.md)
+- use the skill in [`skills/cursor-robotics/SKILL.md`](./skills/cursor-robotics/SKILL.md)
 - start from [`examples/integrations/mcp-stdio.example.json`](./examples/integrations/mcp-stdio.example.json)
+- start from [`examples/integrations/cursor-mcp.example.json`](./examples/integrations/cursor-mcp.example.json)
 
 ### Codex
 
 - use the MCP adapter where available
+- use the universal operator skill in [`skills/roboros-operator/SKILL.md`](./skills/roboros-operator/SKILL.md)
 - use the skill in [`skills/codex-robotics/SKILL.md`](./skills/codex-robotics/SKILL.md)
 - fall back to the SDK and scripts when needed
 
