@@ -138,14 +138,10 @@ export class RosbridgeClient {
       }));
     }
 
-    const typedServices = await Promise.all(
-      serviceNames.map(async (name) => ({
-        name,
-        type: await this.getServiceType(name),
-      })),
-    );
-
-    return typedServices;
+    return serviceNames.map((name) => ({
+      name,
+      type: "",
+    }));
   }
 
   async getTopicType(topic: string): Promise<string> {
