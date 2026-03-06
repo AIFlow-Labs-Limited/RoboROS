@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RoboROS Control Deck</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&family=JetBrains+Mono:wght@100..800&family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/rfl-brand.css" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="grain-overlay"></div>
+    <div class="scanline-overlay"></div>
+
+    <header class="site-header">
+      <div class="header-row">
+        <button type="button" class="brand-lockup" data-scroll-target="hero">
+          <span class="brand-signal"></span>
+          <span>RFL_GLOBAL</span>
+        </button>
+
+        <nav class="header-nav">
+          <button type="button" data-scroll-target="hero">01 OVERVIEW</button>
+          <button type="button" data-scroll-target="runtime">02 RUNTIME</button>
+          <button type="button" data-scroll-target="control">03 CONTROL</button>
+          <button type="button" data-scroll-target="lerobot">04 LEROBOT</button>
+          <button type="button" data-scroll-target="logs">05 LOGS</button>
+        </nav>
+
+        <div class="header-tools">
+          <div class="lang-chip">EN</div>
+          <div class="slash-chip">///</div>
+        </div>
+      </div>
+
+      <div class="header-marquee">
+        <div class="header-marquee-track">
+          ROBOT FLOW LABS // ROBOROS CONTROL DECK // MCP ACTIVE // ROS2 CONNECTED // LEROBOT EXPORT READY // LIVE CAMERA PIPELINE // DOCKER STACK ONLINE //
+          ROBOT FLOW LABS // ROBOROS CONTROL DECK // MCP ACTIVE // ROS2 CONNECTED // LEROBOT EXPORT READY // LIVE CAMERA PIPELINE // DOCKER STACK ONLINE //
+        </div>
+      </div>
+    </header>
+
+    <main class="app-shell">
+      <section class="hero" id="hero">
+        <div class="hero-grid" aria-hidden="true"></div>
+
+        <div class="hero-shell">
+          <div class="hero-badges">
+            <span class="hero-badge hero-badge-live">
+              <span class="hero-badge-dot"></span>
+              <span id="hero-status">SYSTEM: CHECKING</span>
+            </span>
+            <span class="hero-badge hero-badge-dark" id="hero-unit">UNIT ROBOROS</span>
+            <span class="hero-badge" id="hero-network">GLOBAL_NET</span>
+          </div>
+
+          <h1 class="hero-title">
+            Robo<br />
+            <span>ROS</span><br />
+            Deck
+          </h1>
+
+          <div class="hero-topline">
+            <div class="hero-copy">
+              <p class="hero-matrix">KNOWLEDGE INJECTION PROTOCOL V1.2</p>
+              <p class="hero-hook">Operate any robot through one stable contract.</p>
+              <p class="hero-body">
+                RoboROS turns the Robot Flow Labs operating language into a live browser cockpit:
+                MCP control, ROS2 discovery, camera inspection, service execution, Docker observability,
+                and LeRobot export in one place.
+              </p>
+
+              <div class="hero-actions">
+                <button id="refresh-all" class="action action-primary">Refresh Live State</button>
+                <button id="capture-camera" class="action action-secondary">Snap Camera</button>
+                <button id="export-lerobot" class="action action-ghost">Export LeRobot Episode</button>
+              </div>
+            </div>
+
+            <aside class="hero-tile">
+              <div class="hero-tile-label">SYS_OP_MODE</div>
+              <div class="hero-tile-mode" id="hero-mode">CONTROL</div>
+              <div class="hero-tile-meta">
+                <div>
+                  <span class="hero-tile-key">TRANSPORT</span>
+                  <strong id="hero-transport">LOADING</strong>
+                </div>
+                <div>
+                  <span class="hero-tile-key">ROBOT</span>
+                  <strong id="hero-robot">LOADING</strong>
+                </div>
+              </div>
+            </aside>
+          </div>
+
+          <div class="hero-showcase">
+            <div class="hero-showcase-frame">
+              <div class="corner corner-tl"></div>
+              <div class="corner corner-tr"></div>
+              <div class="corner corner-bl"></div>
+              <div class="corner corner-br"></div>
+
+              <img
+                id="hero-camera-image"
+                class="hero-showcase-image"
+                src="/images/agibot_main.png"
+                alt="RoboROS live robot feed"
+              />
+
+              <div class="hero-showcase-scan"></div>
+
+              <div class="hero-showcase-top">
+                <div class="hero-showcase-chip">
+                  <span class="hero-showcase-pulse"></span>
+                  <span>RFL_MAINFRAME</span>
+                </div>
+                <div class="hero-showcase-topline" id="hero-camera-topic">CAM_01 // STANDBY</div>
+              </div>
+
+              <div class="hero-showcase-bottom">
+                <div>
+                  <div class="hero-showcase-kicker">CONTROL DECK // ACTIVE</div>
+                  <div class="hero-showcase-heading">LIVE ROBOT OPERATIONS</div>
+                </div>
+                <div class="hero-showcase-meta">
+                  <div id="hero-build">BUILD: 2026.03</div>
+                  <div id="hero-camera-meta">CAMERA LINK PENDING</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-footer-bar">
+            <div class="hero-footer-left">
+              <span id="metric-transport">loading</span>
+              <span id="metric-robot">loading</span>
+              <span><span id="metric-topics">0</span> TOPICS</span>
+              <span><span id="metric-services">0</span> SERVICES</span>
+            </div>
+            <div class="hero-footer-right">
+              <span id="heartbeat-preview">HEARTBEAT PENDING</span>
+              <span>RFL // ROBOROS // LOCAL DEMO</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid-layout">
+        <article class="panel spotlight" id="runtime">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Runtime</p>
+              <h2>Overview</h2>
+            </div>
+            <span id="runtime-status" class="status-pill">checking</span>
+          </div>
+          <pre id="overview-json" class="code-block"></pre>
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Vision</p>
+              <h2>Camera Feed</h2>
+            </div>
+            <span id="camera-topic" class="panel-chip">waiting</span>
+          </div>
+          <div class="camera-frame">
+            <img id="camera-image" alt="Robot camera feed" src="/images/agibot_main.png" />
+          </div>
+          <p id="camera-meta" class="panel-footnote">No frame captured yet.</p>
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Live Demo</p>
+              <h2>Docker Status</h2>
+            </div>
+            <button id="refresh-docker" class="panel-button">Refresh</button>
+          </div>
+          <pre id="docker-ps" class="code-block compact"></pre>
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Topics</p>
+              <h2>ROS Graph</h2>
+            </div>
+          </div>
+          <ul id="topics-list" class="list-panel"></ul>
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Services</p>
+              <h2>Callable Endpoints</h2>
+            </div>
+            <span class="panel-chip">rosapi + demo</span>
+          </div>
+          <ul id="services-list" class="list-panel"></ul>
+        </article>
+
+        <article class="panel control-panel" id="control">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Control</p>
+              <h2>Drive Pad</h2>
+            </div>
+            <span id="control-status" class="panel-chip">idle</span>
+          </div>
+          <div class="drive-pad">
+            <button data-motion="forward">Forward</button>
+            <button data-motion="left">Left</button>
+            <button data-motion="stop" class="stop">Stop</button>
+            <button data-motion="right">Right</button>
+            <button data-motion="backward">Back</button>
+          </div>
+          <p class="panel-footnote">
+            Sends `geometry_msgs/msg/Twist` to <code>/cmd_vel</code> through RoboROS safety checks.
+          </p>
+        </article>
+
+        <article class="panel service-panel">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Service Test</p>
+              <h2>Add Two Ints</h2>
+            </div>
+          </div>
+          <form id="service-form" class="inline-form">
+            <input id="service-a" type="number" value="11" />
+            <input id="service-b" type="number" value="31" />
+            <button type="submit" class="panel-button">Call</button>
+          </form>
+          <p id="service-result" class="panel-footnote">No service call yet.</p>
+        </article>
+
+        <article class="panel" id="lerobot">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">LeRobot</p>
+              <h2>Episode Export</h2>
+            </div>
+          </div>
+          <p class="panel-footnote">
+            Creates a demo episode bundle from the current camera frame and heartbeat into the local `artifacts/lerobot` folder.
+          </p>
+          <pre id="lerobot-result" class="code-block compact">No export yet.</pre>
+        </article>
+
+        <article class="panel logs-panel" id="logs">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Logs</p>
+              <h2>Docker Feed</h2>
+            </div>
+            <button id="refresh-logs" class="panel-button">Tail</button>
+          </div>
+          <pre id="docker-logs" class="code-block tall"></pre>
+        </article>
+      </section>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

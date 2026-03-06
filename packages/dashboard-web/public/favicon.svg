@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Background -->
+  <rect width="32" height="32" fill="#050505"/>
+  
+  <!-- Robot eye / sensor design -->
+  <rect x="4" y="4" width="24" height="24" fill="none" stroke="#FF3B00" stroke-width="2"/>
+  
+  <!-- Inner frame -->
+  <rect x="8" y="8" width="16" height="16" fill="#FF3B00"/>
+  
+  <!-- Center dot - the "eye" -->
+  <rect x="13" y="13" width="6" height="6" fill="#050505"/>
+  
+  <!-- Corner brackets -->
+  <path d="M4 10 L4 4 L10 4" fill="none" stroke="#FF3B00" stroke-width="2"/>
+  <path d="M22 4 L28 4 L28 10" fill="none" stroke="#FF3B00" stroke-width="2"/>
+  <path d="M28 22 L28 28 L22 28" fill="none" stroke="#FF3B00" stroke-width="2"/>
+  <path d="M10 28 L4 28 L4 22" fill="none" stroke="#FF3B00" stroke-width="2"/>
+</svg>

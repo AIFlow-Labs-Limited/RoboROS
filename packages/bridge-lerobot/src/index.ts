@@ -1,3 +1,5 @@
+import { mkdir, writeFile } from "node:fs/promises";
+import path from "node:path";
 import { z } from "zod";
 
 export const LeRobotObservationSchema = z.object({
@@ -25,11 +27,63 @@ export const LeRobotEpisodeSchema = z.object({
   metadata: z.record(z.string(), z.unknown()).default({}),
 });
 
+export const LeRobotFrameSchema = z.object({
+  timestamp: z.string(),
+  observations: z.record(z.string(), z.unknown()).default({}),
+  actions: z.record(z.string(), z.unknown()).default({}),
+  metadata: z.record(z.string(), z.unknown()).default({}),
+});
+
 export type LeRobotObservation = z.infer<typeof LeRobotObservationSchema>;
 export type LeRobotAction = z.infer<typeof LeRobotActionSchema>;
 export type LeRobotEpisode = z.infer<typeof LeRobotEpisodeSchema>;
+export type LeRobotFrame = z.infer<typeof LeRobotFrameSchema>;
 
 export function createEpisodeManifest(input: LeRobotEpisode): LeRobotEpisode {
   return LeRobotEpisodeSchema.parse(input);
 }
 
+export function createEpisodeFrame(input: LeRobotFrame): LeRobotFrame {
+  return LeRobotFrameSchema.parse(input);
+}
+
+export async function writeEpisodeBundle(input: {
+  outputDir: string;
+  manifest: LeRobotEpisode;
+  frames: LeRobotFrame[];
+  assets?: Array<{ relativePath: string; content: Buffer | string }>;
+}): Promise<{
+  outputDir: string;
+  manifestPath: string;
+  framesPath: string;
+  assetPaths: string[];
+}> {
+  const manifest = createEpisodeManifest(input.manifest);
+  const frames = input.frames.map(createEpisodeFrame);
+  const outputDir = path.resolve(input.outputDir);
+  const manifestPath = path.join(outputDir, "episode.json");
+  const framesPath = path.join(outputDir, "frames.jsonl");
+
+  await mkdir(outputDir, { recursive: true });
+  await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
+  await writeFile(
+    framesPath,
+    `${frames.map((frame) => JSON.stringify(frame)).join("\n")}\n`,
+    "utf8",
+  );
+
+  const assetPaths: string[] = [];
+  for (const asset of input.assets ?? []) {
+    const assetPath = path.join(outputDir, asset.relativePath);
+    await mkdir(path.dirname(assetPath), { recursive: true });
+    await writeFile(assetPath, asset.content);
+    assetPaths.push(assetPath);
+  }
+
+  return {
+    outputDir,
+    manifestPath,
+    framesPath,
+    assetPaths,
+  };
+}

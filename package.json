@@ -9,6 +9,8 @@
     "build": "pnpm -r build",
     "typecheck": "pnpm -r typecheck",
     "dev:mcp": "pnpm --filter @robotflowlabs/adapter-mcp dev",
+    "dev:web": "pnpm --filter @robotflowlabs/dashboard-web dev",
+    "web": "pnpm --filter @robotflowlabs/dashboard-web dev",
     "doctor": "bash scripts/doctor.sh",
     "demo": "bash scripts/run-demo.sh",
     "demo:up": "RFL_FOLLOW_LOGS=0 bash scripts/run-demo.sh",

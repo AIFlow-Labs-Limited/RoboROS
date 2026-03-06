@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/readme/hero.svg" alt="RoboROS by Robot Flow Labs" width="100%" />
+  <img src="./assets/readme/hero.png" alt="RoboROS by Robot Flow Labs" width="100%" />
 </p>
 
 <p align="center">

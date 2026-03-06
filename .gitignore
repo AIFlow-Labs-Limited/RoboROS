@@ -4,4 +4,4 @@ dist
 coverage
 .turbo
 *.log
-
+artifacts

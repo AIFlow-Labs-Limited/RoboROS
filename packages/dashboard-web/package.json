@@ -1,0 +1,25 @@
+{
+  "name": "@robotflowlabs/dashboard-web",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Robot Flow Labs web dashboard for RoboROS",
+  "main": "./dist/server.js",
+  "types": "./dist/server.d.ts",
+  "scripts": {
+    "build": "pnpm --dir ../runtime-core build && pnpm --dir ../bridge-lerobot build && tsc -p tsconfig.json",
+    "typecheck": "pnpm --dir ../runtime-core build && pnpm --dir ../bridge-lerobot build && tsc --noEmit -p tsconfig.json",
+    "dev": "pnpm --dir ../runtime-core build && pnpm --dir ../bridge-lerobot build && tsx src/server.ts"
+  },
+  "dependencies": {
+    "@robotflowlabs/bridge-lerobot": "workspace:*",
+    "@robotflowlabs/runtime-core": "workspace:*",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^20.17.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "license": "Apache-2.0"
+}
