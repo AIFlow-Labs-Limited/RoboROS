@@ -1,6 +1,58 @@
-<p align="center">
-  <img src="./assets/readme/hero.png" alt="RoboROS by Robot Flow Labs" width="100%" />
-</p>
+<div align="center">
+
+```
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║   ██████╗  ██████╗ ██████╗  ██████╗ ██████╗  ██████╗ ███████╗               ║
+║   ██╔══██╗██╔═══██╗██╔══██╗██╔═══██╗██╔══██╗██╔═══██╗██╔════╝               ║
+║   ██████╔╝██║   ██║██████╔╝██║   ██║██████╔╝██║   ██║███████╗               ║
+║   ██╔══██╗██║   ██║██╔══██╗██║   ██║██╔══██╗██║   ██║╚════██║               ║
+║   ██║  ██║╚██████╔╝██████╔╝╚██████╔╝██║  ██║╚██████╔╝███████║               ║
+║   ╚═╝  ╚═╝ ╚═════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝               ║
+║                                                                              ║
+║   ROBOT FLOW LABS // OPEN ROBOTICS RUNTIME                                   ║
+║   ─────────────────────────────────────────                                  ║
+║   MCP-NATIVE · ROS2-FIRST · LEROBOT-READY · AGENT-AGNOSTIC                  ║
+║                                                                              ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║                                                                              ║
+║   TRANSPORT: ROSBRIDGE     ROBOT: CONNECTED     CAMERA: ACTIVE               ║
+║   TOPICS: 8                SERVICES: 51         SAFETY: ENFORCED             ║
+║                                                                              ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║                                                                              ║
+║   ┌─ NORTHBOUND ──────────────────────────────────────────────────────┐      ║
+║   │  CLAUDE CODE · CURSOR · CODEX · CUSTOM AGENTS · DASHBOARD WEB    │      ║
+║   └───────────────────────────┬───────────────────────────────────────┘      ║
+║                               │                                              ║
+║                     ┌─────────┴─────────┐                                    ║
+║                     │    MCP SERVER      │                                    ║
+║                     │   9 TOOLS          │                                    ║
+║                     │   3 RESOURCES      │                                    ║
+║                     └─────────┬─────────┘                                    ║
+║                               │                                              ║
+║                     ┌─────────┴─────────┐                                    ║
+║                     │   REST / WS API    │                                    ║
+║                     │   :3210 DASHBOARD  │                                    ║
+║                     └─────────┬─────────┘                                    ║
+║                               │                                              ║
+║              ┌────────────────┼────────────────┐                             ║
+║              │                │                │                              ║
+║   ┌──────────┴──┐  ┌─────────┴──────┐  ┌──────┴──────┐                      ║
+║   │ RUNTIME CORE│  │ SAFETY ENGINE  │  │ LEROBOT     │                      ║
+║   │ rosbridge   │  │ speed limits   │  │ episodes    │                      ║
+║   │ discovery   │  │ boundaries     │  │ datasets    │                      ║
+║   │ capabilities│  │ estop          │  │ training    │                      ║
+║   └──────────┬──┘  └────────────────┘  └─────────────┘                      ║
+║              │                                                               ║
+║   ┌──────────┴──────────────────────────────────────────┐                    ║
+║   │  SOUTHBOUND: ROS2 · ZENOH · WEBRTC · VENDOR APIs    │                    ║
+║   └─────────────────────────────────────────────────────┘                    ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+```
+
+</div>
 
 <p align="center">
   <a href="https://robotflowlabs.com/"><img alt="Robot Flow Labs" src="https://img.shields.io/badge/Robot_Flow_Labs-FF3B00?style=for-the-badge&labelColor=111111"></a>
@@ -10,222 +62,140 @@
   <img alt="License Apache-2.0" src="https://img.shields.io/badge/License-Apache_2.0-FF3B00?style=for-the-badge&labelColor=111111">
 </p>
 
-## Why This Exists
+---
 
-RoboROS is the open robotics runtime for **Robot Flow Labs**.
+> **One runtime. Any agent. Any robot.**
+>
+> RoboROS is the open robotics runtime for Robot Flow Labs. Claude Code, Cursor, Codex, custom agents, dashboards, automation systems — all talk to the same stable contract. No one-off plugins. One neutral runtime, many thin adapters.
 
-The goal is simple: any serious agent or application should be able to work with a robot through one stable contract.
-
-That means:
-
-- Claude Code
-- Cursor
-- Codex / OpenAI workflows
-- custom agents
-- dashboards
-- automation systems
-
-All of them should talk to the same runtime, not each to a different one-off plugin.
-
-## Core Direction
-
-- `MCP` is the main northbound interface.
-- `ROS2` is the first southbound runtime.
-- `LeRobot` is the first learning/data bridge.
-- `OpenClaw` becomes a legacy adapter, not the center of the platform.
-
-<p align="center">
-  <img src="./assets/readme/system-map.svg" alt="RoboROS system map" width="100%" />
-</p>
-
-## Current Build
-
-This repo already contains:
-
-- a host-neutral runtime package
-- a first MCP adapter
-- a LeRobot bridge package for dataset manifests
-- Codex and Claude-oriented skill guidance
-- a first-party Robot Flow Labs Docker demo stack
-- scripts to boot, inspect, stop, and smoke-test the live demo
-
-What works today:
-
-- connect to rosbridge
-- inspect runtime health
-- get one overview snapshot for the active robot
-- discover robot capabilities
-- list topics
-- list services
-- publish ROS2 messages
-- call ROS2 services
-- subscribe once to a topic
-- request a camera snapshot
+---
 
 ## Quick Start
 
 ```bash
-pnpm install
-pnpm demo
-pnpm demo:logs
-pnpm build
-pnpm dev:mcp
+pnpm install                  # install dependencies
+pnpm demo                     # boot Docker rosbridge + ROS2 demo node
+pnpm build                    # build all packages
+pnpm dev:mcp                  # start MCP adapter (stdio)
+pnpm dev:web                  # start dashboard web → http://127.0.0.1:3210
 ```
-
-Default environment:
-
-- `RFL_TRANSPORT_MODE=rosbridge`
-- `RFL_ROSBRIDGE_URL=ws://127.0.0.1:9090`
-- `RFL_CAMERA_TOPIC=/robotflow/demo/camera/image_raw/compressed`
-
-Useful checks:
 
 ```bash
-bash scripts/doctor.sh
-pnpm demo:ps
-pnpm demo:logs
-pnpm demo:shell
-pnpm smoke:docker
-pnpm demo:down
+# verify everything works headlessly
+curl -s http://127.0.0.1:3210/api/health | jq '.connected'         # → true
+curl -s http://127.0.0.1:3210/api/topics | jq '.topics | length'   # → 8
+curl -s -X POST http://127.0.0.1:3210/api/service \
+  -H "Content-Type: application/json" \
+  -d '{"service":"/robotflow/demo/add_two_ints","type":"example_interfaces/srv/AddTwoInts","args":{"a":7,"b":13}}' \
+  | jq '.values.sum'                                                # → 20
 ```
 
-## Docker
+## Three Ways In
 
-RoboROS now ships with its own Robot Flow Labs demo stack.
+### 1. MCP (recommended for AI agents)
 
-It does not depend on the upstream AgenticROS Docker setup.
-
-What the demo exposes:
-
-- `/robotflow/demo/heartbeat`
-- `/robotflow/demo/camera/image_raw/compressed`
-- `/robotflow/demo/cmd_vel_echo`
-- `/robotflow/demo/add_two_ints`
-
-One-command validation:
-
-```bash
-pnpm smoke:docker
+```json
+{
+  "mcpServers": {
+    "roboros": {
+      "command": "node",
+      "args": ["packages/adapter-mcp/dist/index.js"],
+      "cwd": "/path/to/RoboROS"
+    }
+  }
+}
 ```
 
-That command:
+9 tools: `robots_list` · `robot_get_overview` · `robot_get_capabilities` · `ros2_list_topics` · `ros2_list_services` · `ros2_publish` · `ros2_call_service` · `ros2_subscribe_once` · `robot_camera_snapshot`
 
-- builds the Robot Flow Labs ROS2 image
-- starts rosbridge on `ws://127.0.0.1:9090`
-- builds the RoboROS workspace
-- verifies the MCP server against the live container
+3 resources: `robot://health` · `robot://overview` · `robot://capabilities`
 
-If `9090` is busy, the scripts now tell you what owns the port before they fail.
+### 2. REST API (scripts, dashboards, non-MCP agents)
+
+```
+GET  /api/health            GET  /api/overview          GET  /api/topics
+GET  /api/services          GET  /api/camera            GET  /api/demo/ps
+GET  /api/demo/logs         POST /api/publish           POST /api/service
+POST /api/subscribe-once    POST /api/lerobot/export-demo
+```
+
+### 3. Dashboard Web UI
+
+Open `http://127.0.0.1:3210` — live runtime overview, camera feed, drive pad, ROS2 graph, Docker logs, LeRobot export. Industrial cyberpunk interface by Robot Flow Labs.
 
 ## Packages
 
 | Package | Purpose |
-| --- | --- |
-| `@robotflowlabs/runtime-core` | neutral runtime, rosbridge transport, capabilities, safety checks |
-| `@robotflowlabs/adapter-mcp` | MCP server exposing RoboROS tools and resources |
-| `@robotflowlabs/bridge-lerobot` | LeRobot-compatible episode and dataset manifest primitives |
+|---------|---------|
+| `@robotflowlabs/runtime-core` | Host-neutral runtime, rosbridge transport, discovery, safety |
+| `@robotflowlabs/adapter-mcp` | MCP server — 9 tools, 3 resources, stdio transport |
+| `@robotflowlabs/bridge-lerobot` | LeRobot episode creation, manifests, dataset export |
+| `@robotflowlabs/dashboard-web` | Web UI + Express REST API server |
+
+## Docker Demo
+
+RoboROS ships its own Robot Flow Labs demo stack. No upstream dependency.
+
+```bash
+pnpm demo                     # start demo
+pnpm demo:ps                  # container status
+pnpm demo:logs                # tail logs
+pnpm smoke:docker              # full end-to-end validation
+pnpm demo:down                # stop
+```
+
+Demo exposes: `/robotflow/demo/heartbeat` · `/robotflow/demo/camera/image_raw/compressed` · `/robotflow/demo/cmd_vel_echo` · `/robotflow/demo/add_two_ints`
 
 ## Agent Integrations
 
-### Claude Code
+| Agent | Interface | Skill |
+|-------|-----------|-------|
+| **Claude Code** | MCP server + `CLAUDE.md` | [`skills/claude-robotics/SKILL.md`](./skills/claude-robotics/SKILL.md) |
+| **Cursor** | MCP server + `.cursor/rules/` | [`skills/cursor-robotics/SKILL.md`](./skills/cursor-robotics/SKILL.md) |
+| **Codex** | MCP + `AGENTS.md` | [`skills/codex-robotics/SKILL.md`](./skills/codex-robotics/SKILL.md) |
+| **Custom** | REST API + SDK | See `AGENTS.md` |
 
-- connect to the RoboROS MCP server
-- use the universal operator skill in [`skills/roboros-operator/SKILL.md`](./skills/roboros-operator/SKILL.md)
-- use the skill in [`skills/claude-robotics/SKILL.md`](./skills/claude-robotics/SKILL.md)
-- read `robot://health` and `robot://capabilities` before motion commands
-
-### Cursor
-
-- use the MCP adapter through a standard stdio MCP config
-- use the universal operator skill in [`skills/roboros-operator/SKILL.md`](./skills/roboros-operator/SKILL.md)
-- use the skill in [`skills/cursor-robotics/SKILL.md`](./skills/cursor-robotics/SKILL.md)
-- start from [`examples/integrations/mcp-stdio.example.json`](./examples/integrations/mcp-stdio.example.json)
-- start from [`examples/integrations/cursor-mcp.example.json`](./examples/integrations/cursor-mcp.example.json)
-
-### Codex
-
-- use the MCP adapter where available
-- use the universal operator skill in [`skills/roboros-operator/SKILL.md`](./skills/roboros-operator/SKILL.md)
-- use the skill in [`skills/codex-robotics/SKILL.md`](./skills/codex-robotics/SKILL.md)
-- fall back to the SDK and scripts when needed
-
-## Current MCP Surface
-
-- `robots_list`
-- `robot_get_overview`
-- `robot_get_capabilities`
-- `ros2_list_topics`
-- `ros2_list_services`
-- `ros2_publish`
-- `ros2_call_service`
-- `ros2_subscribe_once`
-- `robot_camera_snapshot`
-
-Resources:
-
-- `robot://health`
-- `robot://overview`
-- `robot://capabilities`
+Universal operator skill: [`skills/roboros-operator/SKILL.md`](./skills/roboros-operator/SKILL.md)
 
 ## Repo Map
 
-```text
+```
 RoboROS/
 ├── packages/
-│   ├── runtime-core/
-│   ├── adapter-mcp/
-│   └── bridge-lerobot/
-├── skills/
-│   ├── codex-robotics/
-│   └── claude-robotics/
-├── scripts/
-├── examples/
-└── assets/
+│   ├── runtime-core/        # neutral runtime (no host-specific logic)
+│   ├── adapter-mcp/         # MCP server adapter
+│   ├── bridge-lerobot/      # LeRobot episode + dataset bridge
+│   └── dashboard-web/       # web UI + REST API
+├── docker/                  # compose.yml + demo Dockerfile
+├── skills/                  # agent skill bundles
+├── scripts/                 # doctor, demo, smoke-test
+├── artifacts/lerobot/       # exported LeRobot episodes
+├── CLAUDE.md                # Claude Code guide
+├── AGENTS.md                # universal agent guide
+└── ARCHITECTURE.md          # full architecture document
 ```
-
-## Build Style
-
-This repo is intentionally being rebuilt with a stricter bar than the upstream prototype:
-
-- host-neutral contracts first
-- runtime safety outside prompts
-- thin adapters instead of host-locked business logic
-- MCP-native integration
-- LeRobot-compatible data path
-- Robot Flow Labs branding and open-source packaging
 
 ## Roadmap
 
-### Phase 1
+| Phase | Status | Scope |
+|-------|--------|-------|
+| **1** | DONE | Rosbridge runtime, MCP adapter, discovery, camera, safe publish, dashboard web |
+| **2** | NEXT | REST/WS adapters, safety engine, richer capability graph |
+| **3** | PLANNED | LeRobot episode recording, replay, evaluation, dataset tooling |
+| **4** | PLANNED | Zenoh, WebRTC, local DDS parity, vendor connectors |
 
-- rosbridge-first runtime
-- MCP adapter
-- capability discovery
-- camera snapshots
-- safe publish flow
+## Build Philosophy
 
-### Phase 2
+- Host-neutral contracts first
+- Runtime safety outside prompts — never rely on LLM for speed limits, estop, or boundaries
+- Thin adapters instead of host-locked business logic
+- MCP-native integration, REST fallback
+- LeRobot-compatible data path
+- Robot Flow Labs branding and Apache-2.0 open source
 
-- REST and WebSocket adapters
-- stronger safety engine
-- richer robot capability graph
+---
 
-### Phase 3
-
-- LeRobot episode recording and export
-- replay and evaluation hooks
-- dataset manifests and tooling
-
-### Phase 4
-
-- Zenoh, WebRTC, and local DDS parity
-- legacy OpenClaw adapter
-- vendor connectors beyond ROS2
-
-## Open Source
-
-RoboROS is being built as a **Robot Flow Labs** open-source project under **Apache-2.0**.
-
-The code is open.
-The interface is meant to be durable.
-The platform is meant to be fun to operate and serious enough to trust.
+<p align="center">
+  <strong>ROBOT FLOW LABS // ROBOROS // APACHE-2.0</strong><br />
+  <em>The code is open. The interface is durable. The platform is fun to operate and serious enough to trust.</em>
+</p>

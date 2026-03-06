@@ -259,10 +259,7 @@ button {
 }
 
 .hero-title span {
-  background: linear-gradient(90deg, var(--rfl-orange), #f46a34);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--rfl-orange);
 }
 
 .hero-topline {
@@ -511,7 +508,8 @@ button {
 .hero-showcase-bottom {
   bottom: 0;
   align-items: flex-end;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.98), rgba(0, 0, 0, 0.72), transparent);
+  background: var(--rfl-black);
+  border-top: 2px solid var(--rfl-border);
 }
 
 .hero-showcase-chip {
@@ -616,11 +614,13 @@ button {
 }
 
 .status-pill.ok {
-  background: #d6ffe2;
+  background: var(--rfl-black);
+  color: var(--rfl-orange);
 }
 
 .status-pill.warn {
-  background: #ffe1d6;
+  background: var(--rfl-orange);
+  color: var(--rfl-black);
 }
 
 .code-block {
@@ -646,7 +646,7 @@ button {
 .list-panel li {
   padding: 14px;
   border: 2px solid var(--rfl-border);
-  background: rgba(255, 59, 0, 0.05);
+  background: var(--rfl-off-white);
 }
 
 .list-panel strong {
