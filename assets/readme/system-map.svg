@@ -1,0 +1,49 @@
+<svg width="1600" height="760" viewBox="0 0 1600 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="760" rx="28" fill="#111111"/>
+  <rect x="36" y="36" width="1528" height="688" rx="20" fill="#171717" stroke="#2B2B2B"/>
+  <text x="60" y="88" fill="#FF3B00" font-family="Oswald, Arial, sans-serif" font-size="28" letter-spacing="6">ROBOROS // UNIVERSAL ARCHITECTURE</text>
+
+  <rect x="72" y="140" width="420" height="170" rx="22" fill="#F3F3F3"/>
+  <text x="102" y="188" fill="#111111" font-family="Oswald, Arial, sans-serif" font-size="32" font-weight="700">AGENT PLANE</text>
+  <text x="102" y="236" fill="#111111" font-family="Arial, sans-serif" font-size="26">Claude Code</text>
+  <text x="102" y="272" fill="#111111" font-family="Arial, sans-serif" font-size="26">Cursor</text>
+  <text x="102" y="308" fill="#111111" font-family="Arial, sans-serif" font-size="26">Codex / OpenAI workflows</text>
+
+  <rect x="590" y="140" width="420" height="170" rx="22" fill="#FF3B00"/>
+  <text x="620" y="188" fill="#111111" font-family="Oswald, Arial, sans-serif" font-size="32" font-weight="700">NORTHBOUND API</text>
+  <text x="620" y="236" fill="#111111" font-family="Arial, sans-serif" font-size="26">MCP tools, prompts, resources</text>
+  <text x="620" y="272" fill="#111111" font-family="Arial, sans-serif" font-size="26">REST + WebSocket</text>
+  <text x="620" y="308" fill="#111111" font-family="Arial, sans-serif" font-size="26">TypeScript + Python SDK</text>
+
+  <rect x="1108" y="140" width="420" height="170" rx="22" fill="#F3F3F3"/>
+  <text x="1138" y="188" fill="#111111" font-family="Oswald, Arial, sans-serif" font-size="32" font-weight="700">CONTROL PLANE</text>
+  <text x="1138" y="236" fill="#111111" font-family="Arial, sans-serif" font-size="26">Runtime orchestration</text>
+  <text x="1138" y="272" fill="#111111" font-family="Arial, sans-serif" font-size="26">Capability graph + safety engine</text>
+  <text x="1138" y="308" fill="#111111" font-family="Arial, sans-serif" font-size="26">Audit + execution jobs</text>
+
+  <rect x="72" y="420" width="470" height="220" rx="22" fill="#1A1A1A" stroke="#373737"/>
+  <text x="102" y="472" fill="#F3F3F3" font-family="Oswald, Arial, sans-serif" font-size="34" font-weight="700">ROS2 CONNECTORS</text>
+  <text x="102" y="522" fill="#F3F3F3" fill-opacity="0.8" font-family="Arial, sans-serif" font-size="27">rosbridge</text>
+  <text x="102" y="560" fill="#F3F3F3" fill-opacity="0.8" font-family="Arial, sans-serif" font-size="27">local DDS</text>
+  <text x="102" y="598" fill="#F3F3F3" fill-opacity="0.8" font-family="Arial, sans-serif" font-size="27">WebRTC</text>
+  <text x="102" y="636" fill="#F3F3F3" fill-opacity="0.8" font-family="Arial, sans-serif" font-size="27">Zenoh</text>
+
+  <rect x="566" y="420" width="470" height="220" rx="22" fill="#1A1A1A" stroke="#373737"/>
+  <text x="596" y="472" fill="#F3F3F3" font-family="Oswald, Arial, sans-serif" font-size="34" font-weight="700">LEROBOT BRIDGE</text>
+  <text x="596" y="522" fill="#F3F3F3" fill-opacity="0.8" font-family="Arial, sans-serif" font-size="27">episode recording</text>
+  <text x="596" y="560" fill="#F3F3F3" fill-opacity="0.8" font-family="Arial, sans-serif" font-size="27">dataset manifests</text>
+  <text x="596" y="598" fill="#F3F3F3" fill-opacity="0.8" font-family="Arial, sans-serif" font-size="27">export to LeRobotDataset v3</text>
+  <text x="596" y="636" fill="#F3F3F3" fill-opacity="0.8" font-family="Arial, sans-serif" font-size="27">replay + evaluation hooks</text>
+
+  <rect x="1060" y="420" width="470" height="220" rx="22" fill="#1A1A1A" stroke="#373737"/>
+  <text x="1090" y="472" fill="#F3F3F3" font-family="Oswald, Arial, sans-serif" font-size="34" font-weight="700">OPEN SOURCE SIGNAL</text>
+  <text x="1090" y="522" fill="#F3F3F3" fill-opacity="0.8" font-family="Arial, sans-serif" font-size="27">Robot Flow Labs branding</text>
+  <text x="1090" y="560" fill="#F3F3F3" fill-opacity="0.8" font-family="Arial, sans-serif" font-size="27">Apache-2.0 codebase</text>
+  <text x="1090" y="598" fill="#F3F3F3" fill-opacity="0.8" font-family="Arial, sans-serif" font-size="27">thin host adapters</text>
+  <text x="1090" y="636" fill="#F3F3F3" fill-opacity="0.8" font-family="Arial, sans-serif" font-size="27">stable public contract</text>
+
+  <path d="M492 225H590" stroke="#FF3B00" stroke-width="6"/>
+  <path d="M1010 225H1108" stroke="#FF3B00" stroke-width="6"/>
+  <path d="M800 310V388" stroke="#FF3B00" stroke-width="6"/>
+</svg>
+

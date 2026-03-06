@@ -1,0 +1,22 @@
+{
+  "name": "roboros",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "RoboROS by Robot Flow Labs - MCP-native robotics runtime for ROS2, agents, and LeRobot workflows",
+  "packageManager": "pnpm@9.15.4",
+  "scripts": {
+    "build": "pnpm -r build",
+    "typecheck": "pnpm -r typecheck",
+    "dev:mcp": "pnpm --filter @robotflowlabs/adapter-mcp dev",
+    "doctor": "bash scripts/doctor.sh",
+    "demo": "bash scripts/run-demo.sh",
+    "demo:up": "bash scripts/run-demo.sh",
+    "demo:down": "bash scripts/stop-demo.sh",
+    "docker:build": "docker compose -f docker/compose.yml build",
+    "smoke:docker": "bash scripts/smoke-test-docker.sh"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
